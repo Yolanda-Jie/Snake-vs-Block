@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Snake vs Block - Play Online at snake-vs-block.store</title>
+    <meta name="description" content="Play the addictive Snake vs Block game online for free! Guide your snake, collect balls, and break blocks to achieve the highest score. Fun and challenging for all ages.">
+    <link rel="canonical" href="https://snake-vs-block.store/">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Apple-like system font stack (Tailwind's default sans-serif is often close) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .game-iframe-container {
+            position: relative;
+            width: 100%; /* 宽度将充满其父容器 (section#game-embed) */
+            /* max-width: 800px; */ /* 移除了这个限制，允许更宽 */
+            margin-left: auto;
+            margin-right: auto;
+            height:80vh; /* 将高度设置为视口高度的75%。您可以调整这个值，例如 70vh 或 80vh。 */
+            /* aspect-ratio: 4 / 3; */ /* 移除了 aspect-ratio */
+        }
+
+        /* 下面这个 @media 查询也可以移除或注释掉，因为我们不再使用 aspect-ratio */
+        /*
+        @media (min-width: 768px) { 
+             .game-iframe-container {
+                // aspect-ratio: 16 / 9; 
+             }
+        }
+        */
+
+        /* Custom scrollbar for a more subtle look (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Light grey track */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1; /* Medium grey thumb */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a1a1a1; /* Darker grey on hover */
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col min-h-screen antialiased">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-center items-center">
+                <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                    Snake vs Block
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+
+        <section class="text-center mb-8">
+            <p class="text-lg text-slate-600">
+                The classic arcade challenge: guide your growing snake through a field of numbered blocks!
+            </p>
+        </section>
+
+        <section id="game-embed" class="mb-10">
+            <h2 class="text-2xl font-semibold text-slate-700 mb-4 text-center sr-only">Play Snake vs Block Online</h2>
+            <div class="game-iframe-container bg-black rounded-lg shadow-xl overflow-hidden">
+                <iframe
+                    src="https://www.crazygames.com/embed/snake-vs-block"
+                    style="width: 100%; height: 100%; border: none;"
+                    frameborder="0"
+                    allow="gamepad *;"
+                    title="Snake vs Block Game Embed">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="game-details" class="bg-white p-6 sm:p-8 rounded-lg shadow-md max-w-3xl mx-auto">
+            <article>
+                <h2 class="text-2xl font-semibold text-slate-700 mb-4">About the Game</h2>
+                <p class="text-slate-600 mb-4 leading-relaxed">
+                    Snake vs Block is an engaging and fast-paced arcade game that tests your reflexes and strategic planning. You control a snake composed of individual balls. Your primary objective is to collect more balls to extend the length of your snake while navigating through a path littered with numbered blocks.
+                </p>
+
+                <h2 class="text-xl font-semibold text-slate-700 mt-6 mb-3">How to Play</h2>
+                <ul class="list-disc list-inside text-slate-600 space-y-2 leading-relaxed">
+                    <li><strong>Control Your Snake:</strong> Use your mouse (on desktop) or finger (on mobile) to swipe left or right, guiding the snake's movement.</li>
+                    <li><strong>Collect Balls:</strong> Glide through the glowing orbs marked with a plus (+) sign. Each orb collected adds to your snake's length, making it stronger.</li>
+                    <li><strong>Break the Blocks:</strong> Strategically hit the numbered blocks in your path. The number on a block indicates how many segments of your snake will be consumed to break it. Aim for blocks with lower numbers.</li>
+                    <li><strong>Survive:</strong> If your snake's length drops to zero after hitting a block, or if you attempt to break a block that requires more segments than you possess, the game ends.</li>
+                    <li><strong>Score High:</strong> Your score is determined by how many blocks you break and how far you travel. Challenge yourself to beat your personal best!</li>
+                </ul>
+
+                <h2 class="text-xl font-semibold text-slate-700 mt-6 mb-3">Tips for Success</h2>
+                <ul class="list-disc list-inside text-slate-600 space-y-2 leading-relaxed">
+                    <li>Always prioritize collecting balls, especially when your snake is short.</li>
+                    <li>Plan your path ahead to target blocks with the lowest numbers.</li>
+                    <li>Sometimes it's wiser to avoid a series of high-numbered blocks than to risk losing too much length.</li>
+                    <li>Quick, precise swipes are key to navigating tight spots.</li>
+                </ul>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-8 mt-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> snake-vs-block.store. All Rights Reserved.</p>
+            <p class="text-sm text-slate-400 mt-1">
+                Game embedded from CrazyGames. We are not affiliated with CrazyGames.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
