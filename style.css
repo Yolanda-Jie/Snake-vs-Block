@@ -1,0 +1,324 @@
+/* --- 全局和基础设置 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 隐藏可能出现的滚动条 */
+}
+
+.page-landing {
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    position: relative;
+}
+
+/* --- 顶部导航栏 --- */
+.main-header {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo {
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.btn-signup {
+    background-color: #adff87;
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.btn-signup:hover {
+    background-color: #8efd5c;
+}
+
+/* --- 核心内容区域 --- */
+.hero-section {
+    width: 100%;
+}
+
+.main-heading {
+    font-size: 25vw;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 20px 0;
+    
+    transform: skewX(-10deg);
+    
+    position: relative;
+    min-height: 25vw; 
+    
+    perspective: 500px;
+}
+
+.sub-heading {
+    color: #29d8d8;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+}
+
+/* --- 按钮样式 --- */
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #adff87;
+    color: #1a1a1a;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #8efd5c;
+}
+
+.link-secondary {
+    color: #adff87;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+
+/* --- 艺术化切换动画样式 --- */
+
+/* 单词容器的样式 */
+.word {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* 单个字母的样式 */
+.word span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateZ(0);
+}
+
+/* --- 定义动画 --- */
+@keyframes fall-in {
+    from {
+        opacity: 0;
+        transform: translateY(-40px) rotateX(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
+
+@keyframes fly-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-40px) rotateX(90deg);
+    }
+}
+
+/* --- 应用动画的辅助类 (已修正) --- */
+.animate-in .word span {
+    animation: fall-in 0.6s forwards;
+}
+
+.animate-out .word span {
+    animation: fly-out 0.6s forwards;
+}
+
+/* --- 用于 Games 页面的新增样式 --- */
+/* 为 games.html (gallery page) 的主内容区设置顶部间距 */
+.page-gallery .hero-section {
+    padding-top: 120px;/* 这个值可以根据你的喜好调整，确保与头部的间距和谐 */
+}
+
+/* 页面标题样式 (比主页的标题小一些) */
+.page-title {
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #adff87; /* 使用我们的主题绿色 */
+    margin-bottom: 50px;
+    transform: skewX(-10deg); /* 保持倾斜风格 */
+}
+
+/* 游戏画廊/列表的容器样式 */
+.game-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 响应式网格布局 */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 单个游戏卡片的样式 */
+.game-card {
+    background-color: #252525;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    overflow: hidden; /* 隐藏图片溢出的部分 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+    display: flex; /* 使用flex布局，让文字部分能独立控制 */
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 这就是魔法发生的地方！*/
+.game-card img {
+    width: 100%; /* 图片宽度撑满卡片 */
+    aspect-ratio: 16 / 9; /* 强制定义图片容器的比例为 16:9 */
+    object-fit: cover; /* 让图片填满这个 16:9 的容器，多余部分裁剪 */
+    display: block;
+}
+
+/* 卡片文字部分的样式 */
+.game-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 20px 20px 10px 20px;
+    color: #adff87;
+}
+
+.game-card p {
+    font-size: 0.9rem;
+    padding: 0 20px 20px 20px;
+    color: #cccccc;
+    line-height: 1.5;
+    flex-grow: 1; /* 让文字部分占据剩余空间，保证卡片底部对齐 */
+}
+
+
+/* --- Styles for Individual Game Pages --- */
+
+.page-game-detail .hero-section {
+    padding-top: 120px; /* Add some space at the top so content isn't under the header */
+    padding-bottom: 60px;
+}
+
+/* Container for the game iframe */
+.game-embed-container {
+    width: 100%;
+    max-width: 960px; /* Limit the max width of the game window */
+    margin: 40px auto;
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 widescreen ratio */
+    border-radius: 10px;
+    border: 3px solid #adff87; /* Use our theme's neon green for the border */
+    box-shadow: 0 0 30px rgba(173, 255, 135, 0.3); /* Add a glow effect */
+    overflow: hidden; /* Ensure the iframe respects the border-radius */
+}
+
+/* Container for the text details (About, How to Play, etc.) */
+.game-info {
+    background-color: #252525;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 30px 40px;
+    max-width: 960px;
+    margin: 60px auto 0 auto;
+    text-align: left; /* Align text to the left for readability */
+}
+
+.game-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #29d8d8; /* Use our theme's cyan color */
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.game-info h2:first-child {
+    margin-top: 0;
+}
+
+.game-info p, 
+.game-info li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #cccccc;
+}
+
+.game-info ul {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 0;
+}
+
+.game-info li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Create custom, theme-colored bullet points */
+.game-info li::before {
+    content: '▶'; /* Use a triangle as a bullet */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #adff87; /* Use neon green for the bullet */
+    font-size: 0.8em;
+}
+
+.game-info strong {
+    color: #ffffff; /* Make the 'Controls:' text white */
+}
